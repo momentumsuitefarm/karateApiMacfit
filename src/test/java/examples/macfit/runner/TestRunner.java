@@ -24,12 +24,17 @@ class TestRunner {
     Karate members() {
         return Karate.run("../members/members").relativeTo(getClass());
     }      
+    @Karate.Test()
+    Karate activity() {
+        return Karate.run("../activity/activity").relativeTo(getClass());
+    }     
 
     @Karate.Test
     Karate runAllTests() {
         return Karate.run(
                 "../profile/profile",
-               "../members/members"
+               "../members/members",
+               "../activity/activity"
         ).relativeTo(getClass());
     }
 }

@@ -15,3 +15,9 @@ Feature: Macfit Profile API endpoint test
     When method get
     Then status 200
     * print 'Profile data for member 6484 fetched successfully'
+
+  Scenario: Bilerek Yazılmış Hatalı Case
+    Given path 'members/Profile/6484'
+    When method get
+    Then status 400
+    * print 'Profile data for member 6484 fetched successfully'

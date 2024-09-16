@@ -240,7 +240,8 @@ Feature: Macfit Members API endpoint test
     * print 'UseInvitationCode: Endpoint responded with status 200'
 
   Scenario: UpdatePrivacy
-    * configure timeout = 5000
+    * configure connectTimeout = 5000  # 5 saniye bağlantı süresi
+    * configure readTimeout = 10000  # 10 saniye yanıt bekleme süresi
     Given path '/members/UpdatePrivacy'
     And request { ShowProfile: 'false' }
     When method post

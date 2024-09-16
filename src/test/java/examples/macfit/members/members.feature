@@ -240,12 +240,14 @@ Feature: Macfit Members API endpoint test
     * print 'UseInvitationCode: Endpoint responded with status 200'
 
   Scenario: UpdatePrivacy
+    * configure timeout = 5000  # 10 saniye (milisaniye)
     Given path '/members/UpdatePrivacy'
-    And request { ShowProfile: 'false'}
+    And request { ShowProfile: 'false' }
     When method post
     Then status 200
     And match response.message == 'OK'
     * print 'UpdatePrivacy: Endpoint responded with status 200'
+
 # Scenario: DeletePhoto
 #     Given path '/members/DeletePhoto'
 #     When method post
